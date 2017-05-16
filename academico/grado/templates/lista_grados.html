@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>lista de grado</h1>
+	<ul>
+		{% for grado in grados %}
+			<li>
+				<a>{{ grado }}</a>
+			</li>
+		{% empty %}
+			<p>no hay grados!</p>
+		{% endfor %}
+
+		<h2>Nuevo Grado</h2>
+		<form action="/grados/crear/" method= "POST">
+			{% csrf_token %}
+			{{ grado_form }}
+			<input type="submit">
+		</form>
+	</ul>
+</body>
+</html>
